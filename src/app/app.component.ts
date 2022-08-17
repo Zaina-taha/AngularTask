@@ -25,23 +25,21 @@ export class AppComponent {
 
 
 
-  public addUser(form:NgForm){
 
-    console.log(form.form.valid,this.newUserVm)
-    if(!form.form.valid){
-    form.form.markAllAsTouched();}
-    else{
-    this.userList.push(this.newUserVm)}
-   
+
+
+  public addUser(userVm: UserVm){
+ console.log(userVm);
+    this.userList.push(userVm);
+
 
   }
-
   deleteUser(user:UserVm){
     let i=this.userList.indexOf(user)
     if(i>=0){
       this.userList.splice(i,1);
     }
-    
+
   }
   }
 

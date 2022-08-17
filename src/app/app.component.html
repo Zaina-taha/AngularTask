@@ -1,27 +1,6 @@
-<div>
-  <form #form="ngForm" (ngSubmit)="addUser(form)">
-<label>Name</label>
-<input type="text" [(ngModel)]="newUserVm.name" name="name" required>
-<span *ngIf="form.form.controls['name']?.touched 
-&& ! form.form.controls['name']?.valid">required</span><br>
-<label>Age</label>
-<input type="age" [(ngModel)]="newUserVm.age" name="age"><br>
-<label>Email</label>
-<input type="email" [(ngModel)]="newUserVm.email" name="email" email required>
-<span *ngIf="form.form.controls['email']?.touched 
-&& ! form.form.controls['email']?.valid">{{form.form.controls['email'].errors|json}}</span> 
-<br>
-<label>Password</label>
-<input type="password" [(ngModel)]="newUserVm.password" name="password"><br>
-
-<button type="">Add</button>
-</form>
-</div>
-
 
 <br>
-<br>
-<br>
+<app-user-form (submit)="addUser($event)"></app-user-form>
 
 <table border="1">
   <thead>
