@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
 
-declare var AddContent: any;
-declare var Reset: any;
+
 
 export interface UserVm {
   name: string;
@@ -21,8 +20,7 @@ export class AppComponent implements OnInit{
 
 
   ngOnInit(): void {
-   new AddContent();
-    new Reset();
+
   }
 }
 
