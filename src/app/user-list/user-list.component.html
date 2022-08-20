@@ -1,0 +1,27 @@
+
+<br>
+<app-user-form (formSubmit)="addUser($event)"></app-user-form>
+
+<table border="1">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Email</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of userList,let i = index">
+    <td>{{i}}</td>
+    <td>{{user.name}}</td>
+    <td>{{user.age}}</td>
+    <td>{{user.email}}</td>
+    <td><button (click)="deleteUser(user)">X</button>
+      <button >Edit</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<router-outlet></router-outlet>

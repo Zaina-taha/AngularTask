@@ -1,22 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
 
-<br>
-<app-user-form (submit)="addUser($event)"></app-user-form>
 
-<table border="1">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Age</th>
-      <th>Email</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let user of userList">
-      <td>{{user.name}}</td>
-      <td>{{user.age}}</td>
-      <td>{{user.email}}</td>
-      <td><button (click)="deleteUser(user)">X</button></td>
-    </tr>
-  </tbody>
-</table>
+    .site-header {
+      background-color:#bfaba9;
+      display: flex;
+      min-height: 60px;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+    footer {
 
+      padding: 3px;
+      text-align: start;
+      background-color: #bfaba9;
+      color:white;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      box-sizing: border-box;
+
+    }
+    .MainSection{
+      display: flex;
+      justify-content: space-between;
+      box-sizing: border-box;
+      flex-direction: column;
+      flex: 1;
+      background-color:#f0e0e4;
+    }
+
+    .LeftSection {
+      background-color:#e0cacc;
+      padding: 5rem;
+      padding-top: 150px;
+      align-items: center;
+
+
+    }
+    .button{
+      background-color: white;
+      color:#e0cacc;
+      display: inline-block;
+      border-radius: 30px;
+      border: 4px #cccccc;
+      text-align: center;
+      font-size: 15px;
+      padding: 15px;
+      width: 200px;
+      margin: 4px;
+    }
+
+  </style>
+  <script  type="text/javascript" src="assets/js/nand.js"></script>
+
+</head>
+<body>
+<header class="site-header">
+  <div >
+    Header section height is dynamic with minimum height 60px.depends on its content <br>
+    <button class="button" onclick=" AddContent()">Add Content</button>
+    <button class="button" onclick=" Reset()"> Delete dynamic content</button>
+    <div >Dynamic content</div>
+    <div id="lineContent"></div>
+
+  </div>
+</header>
+
+<div class="container">
+  <div class="LeftSection">
+    <button class="button" routerLink="/user/list">Show User List</button>
+  </div>
+
+  <div class="MainSection">
+    <router-outlet></router-outlet>
+  </div>
+
+</div>
+
+<footer>
+  <div>Footer Section</div>
+</footer>
+
+</body>
+</html>

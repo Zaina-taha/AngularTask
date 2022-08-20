@@ -1,6 +1,10 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {UserVm} from "../app.component";
+
+
+
+
 
 
 @Component({
@@ -9,21 +13,32 @@ import {UserVm} from "../app.component";
   styleUrls: ['./user-form.component.scss']
 })
 export class UserFormComponent implements OnInit {
-  @Output() submit: EventEmitter<UserVm> =   new EventEmitter();
+  @Output() formSubmit: EventEmitter<UserVm> = new EventEmitter();
 
 
-  constructor() { }
 
-  ngOnInit(): void {
+
+  constructor() {
+
   }
 
-  public newUserVm: UserVm ={name:'',age:'',email:'',password:''};
+  ngOnInit(): void {
 
-  public addUser(form:NgForm){
 
-    console.log(form.form.valid,this.newUserVm)
-    if(!form.form.valid){
-      form.form.markAllAsTouched();}
-    else{
-      this.submit.emit(this.newUserVm)}
-}}
+  }
+
+
+  newUserVm: UserVm = {name: '', age: '', email: '', password: ''};
+
+  public addUser(form: NgForm) {
+
+    console.log(form.form.valid, this.newUserVm)
+    if (!form.form.valid) {
+      form.form.markAllAsTouched();
+    } else {
+      this.formSubmit.emit(this.newUserVm)
+    }
+  }
+
+
+ }
