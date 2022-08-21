@@ -1,6 +1,6 @@
 
 <br>
-<app-user-form (formSubmit)="addUser($event)"></app-user-form>
+
 
 <table border="1">
   <thead>
@@ -12,7 +12,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let user of userList,let i = index">
+  <tr *ngFor="let user of usersServices.userList,let i = index">
     <td>{{i}}</td>
     <td>{{user.name}}</td>
     <td>{{user.age}}</td>
@@ -24,4 +24,4 @@
   </tbody>
 </table>
 
-<router-outlet></router-outlet>
+

@@ -1,6 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {NgForm} from "@angular/forms";
-import {UserVm} from "../app.component";
+import {UserVm} from "../../app.component";
+import {UsersService} from "../../users.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 
 
@@ -13,12 +15,16 @@ import {UserVm} from "../app.component";
   styleUrls: ['./user-form.component.scss']
 })
 export class UserFormComponent implements OnInit {
-  @Output() formSubmit: EventEmitter<UserVm> = new EventEmitter();
+
+//  @Output() formSubmit: EventEmitter<UserVm> = new EventEmitter();
 
 
 
 
-  constructor() {
+  constructor(public usersServices: UsersService,
+              public activatedRoute:ActivatedRoute,
+              public router:Router
+  ) {
 
   }
 
@@ -36,7 +42,9 @@ export class UserFormComponent implements OnInit {
     if (!form.form.valid) {
       form.form.markAllAsTouched();
     } else {
-      this.formSubmit.emit(this.newUserVm)
+      this.usersServices.userList.push(this.newUserVm);
+      this.router.navigate(['/users/list']);
+
     }
   }
 
