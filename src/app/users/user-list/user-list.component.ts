@@ -2,9 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {UsersService} from "../../users.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {ExPipePipe} from "../../ex-pipe.pipe";
 export interface UserVm {
   name: string;
-  age: string;
+  age?: number;
+  DateOfBirth?:Date;
   email: string;
   password: string;
 }
@@ -16,12 +18,12 @@ export interface UserVm {
 })
 export class UserListComponent implements OnInit {
 
-  constructor(public usersServices: UsersService,
+  constructor(public usersServices: UsersService, public exPipePipe: ExPipePipe
               ) { }
 
   ngOnInit(): void {
   }
-  public newUserVm: UserVm = {name: '', age: '', email: '', password: ''};
+  public newUserVm: UserVm = {name: '', age: 0,email: '', password: ''};
 //userToUpdate?:UserVm[]={name:''};
 
 

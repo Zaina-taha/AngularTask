@@ -4,8 +4,9 @@
     <input type="text" [(ngModel)]="newUserVm.name" name="name" required>
     <span *ngIf="form.form.controls['name']?.touched
 && ! form.form.controls['name']?.valid">required</span><br>
-    <label>Age</label>
-    <input type="age" [(ngModel)]="newUserVm.age" name="age"><br>
+
+    <label>DateOfBirth</label>
+    <input type="Date" [(ngModel)]="newUserVm.DateOfBirth" name="DateOfBirth"><br>
     <label>Email</label>
     <input type="email" [(ngModel)]="newUserVm.email" name="email" email required>
     <span *ngIf="form.form.controls['email']?.touched

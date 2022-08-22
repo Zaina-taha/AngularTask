@@ -5,7 +5,8 @@ import {NgForm} from '@angular/forms';
 
 export interface UserVm {
   name: string;
-  age: string;
+  age?: number;
+  DateOfBirth?:Date;
   email: string;
   password: string;
 }

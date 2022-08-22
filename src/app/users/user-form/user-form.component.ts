@@ -3,6 +3,7 @@ import {NgForm} from "@angular/forms";
 import {UserVm} from "../../app.component";
 import {UsersService} from "../../users.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {DatePipe} from "@angular/common";
 
 
 
@@ -23,7 +24,8 @@ export class UserFormComponent implements OnInit {
 
   constructor(public usersServices: UsersService,
               public activatedRoute:ActivatedRoute,
-              public router:Router
+              public router:Router,
+              private datePipe:DatePipe
   ) {
 
   }
@@ -34,7 +36,7 @@ export class UserFormComponent implements OnInit {
   }
 
 
-  newUserVm: UserVm = {name: '', age: '', email: '', password: ''};
+  newUserVm: UserVm = {name: '', age: 0,DateOfBirth:new Date(), email: '', password: ''};
 
   public addUser(form: NgForm) {
 
